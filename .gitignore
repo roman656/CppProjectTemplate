@@ -187,9 +187,6 @@ simv.db.dir/
 # switch:  -Mdir=<directory_path>
 csrc/
 
-# Log file - the following switch allows to specify the file that will be
-# used to write all messages from simulation:  -l <filename>
-
 # Coverage results (generated with urg) and database location.  The
 # following switch can also be used:  urg -dir <coverage_directory>.vdb
 simv.vdb/
@@ -334,9 +331,6 @@ bh_unicode_properties.cache
 # https://packagecontrol.io/packages/sublime-github
 GitHub.sublime-settings
 
-##### Notepad++
-# Notepad++ backups #
-
 ##### TextMate
 *.tmproj
 *.tmproject
@@ -409,8 +403,6 @@ cmake-build-*/
 
 # File-based project format
 *.iws
-
-# IntelliJ
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -939,12 +931,8 @@ _deps
 # Prerequisites
 *.d
 
-# Compiled Object files
-
 # Precompiled Headers
 *.gch
-
-# Compiled Dynamic libraries
 
 # Fortran module files
 *.mod
@@ -962,8 +950,6 @@ _deps
 *.bin
 
 ##### C
-# Prerequisites
-
 # Object files
 *.ko
 *.elf
@@ -971,12 +957,6 @@ _deps
 # Linker output
 *.map
 *.exp
-
-# Precompiled Headers
-
-# Libraries
-
-# Shared objects (inc. Windows DLLs)
 
 # Executables
 *.i*86
