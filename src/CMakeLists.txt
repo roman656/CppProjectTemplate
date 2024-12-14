@@ -1,4 +1,4 @@
-SET(EXECUTABLE_NAME "${PROJECT_NAME}")
+set(EXECUTABLE_NAME "${PROJECT_NAME}")
 
 add_subdirectory(SomeLibrary)
 
@@ -10,5 +10,5 @@ set_target_properties(${EXECUTABLE_NAME} PROPERTIES
         CXX_EXTENSIONS NO)
 
 target_link_libraries(${EXECUTABLE_NAME} PRIVATE
-        SomeLibraryLib
+        ${PROJECT_NAME}::SomeLibraryLib
         ProjectSettings)

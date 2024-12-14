@@ -8,5 +8,5 @@ set_target_properties(${TESTS_EXECUTABLE_NAME} PROPERTIES
         CXX_EXTENSIONS NO)
 
 target_link_libraries(${TESTS_EXECUTABLE_NAME} PRIVATE
-        SomeLibraryLib
+        ${PROJECT_NAME}::SomeLibraryLib
         ProjectSettings)
