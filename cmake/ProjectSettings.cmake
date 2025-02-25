@@ -1,23 +1,18 @@
-set(SETTINGS_LIB_NAME "ProjectSettings")
+add_library("ProjectSettings" INTERFACE)
 
-add_library(${SETTINGS_LIB_NAME} INTERFACE)
-
-target_compile_options(${SETTINGS_LIB_NAME} INTERFACE
-        #-Werror
-
-        -Wall
-        -Wextra
-        -Wpedantic
-
-        -Wcast-align
-        -Wcast-qual
-        -Wconversion
-        -Wctor-dtor-privacy
-        -Wenum-compare
-        -Wfloat-equal
-        -Wnon-virtual-dtor
-        -Wold-style-cast
-        -Woverloaded-virtual
-        -Wredundant-decls
-        -Wsign-conversion
-        -Wsign-promo)
+target_compile_options("ProjectSettings" INTERFACE
+        $<$<CXX_COMPILER_ID:GNU>:
+                -Wall -Wextra -Wpedantic
+                -Wconversion -Wsign-conversion -Wshadow -Wcast-align
+                -Wold-style-cast -Wnon-virtual-dtor -Woverloaded-virtual
+                -Wstrict-null-sentinel -Wduplicated-cond -Wduplicated-branches
+                -Wlogical-op -Wnull-dereference -Wformat=2 -Wundef>
+        $<$<CXX_COMPILER_ID:Clang>:
+                -Wall -Wextra -Wpedantic
+                -Wconversion -Wsign-conversion -Wshadow -Wcast-align
+                -Wold-style-cast -Wnon-virtual-dtor -Woverloaded-virtual
+                -Wstrict-null-sentinel -Wduplicated-cond -Wduplicated-branches
+                -Wlogical-op -Wnull-dereference -Wformat=2 -Wundef>
+        $<$<CXX_COMPILER_ID:MSVC>:
+                /W4 /WX>
+)
