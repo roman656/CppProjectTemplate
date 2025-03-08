@@ -5,14 +5,13 @@ file(GLOB_RECURSE TESTS_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.test.cpp")
 
 add_executable(${TESTS_EXECUTABLE_NAME} ${TESTS_SOURCES})
 
-set_target_properties(${TESTS_EXECUTABLE_NAME} PROPERTIES
-        CXX_STANDARD 17
-        CXX_STANDARD_REQUIRED YES
-        CXX_EXTENSIONS NO)
+target_compile_features(${TESTS_EXECUTABLE_NAME} PRIVATE cxx_std_17)
+set_target_properties(${TESTS_EXECUTABLE_NAME} PROPERTIES CXX_EXTENSIONS OFF)
 
+include(AddGoogleTest)
 target_link_libraries(${TESTS_EXECUTABLE_NAME} PRIVATE
         ${PROJECT_NAME}::SomeLibraryLib
-        ProjectSettings
+        ${PROJECT_NAME}::ProjectSettings
         GTest::gtest_main)
 
 include(GoogleTest)
