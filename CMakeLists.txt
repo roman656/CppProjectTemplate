@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15...3.31 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.24...3.31 FATAL_ERROR)
 
 project(CppProjectTemplate
         VERSION 1.0.0
