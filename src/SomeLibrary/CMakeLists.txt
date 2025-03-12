@@ -8,8 +8,10 @@ file(GLOB_RECURSE SOME_LIB_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 add_library(${SOME_LIB_NAME} ${SOME_LIB_SOURCES} ${SOME_LIB_HEADERS})
 add_library(${PROJECT_NAME}::${SOME_LIB_NAME} ALIAS ${SOME_LIB_NAME})
 
-target_compile_features(${SOME_LIB_NAME} PUBLIC cxx_std_17)
-set_target_properties(${SOME_LIB_NAME} PROPERTIES CXX_EXTENSIONS OFF)
+set_target_properties(${SOME_LIB_NAME} PROPERTIES
+        CXX_STANDARD 17
+        CXX_STANDARD_REQUIRED YES
+        CXX_EXTENSIONS OFF)
 
 target_link_libraries(${SOME_LIB_NAME} PRIVATE ${PROJECT_NAME}::ProjectSettings)
 target_include_directories(${SOME_LIB_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")

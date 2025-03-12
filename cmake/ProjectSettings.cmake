@@ -15,5 +15,4 @@ target_compile_options(ProjectSettings INTERFACE
                 -Wstrict-null-sentinel -Wduplicated-cond -Wduplicated-branches
                 -Wlogical-op -Wnull-dereference -Wformat=2 -Wundef>
         $<$<CXX_COMPILER_ID:MSVC>:
-                /W4 /WX>
-)
+                /W4 /WX>)

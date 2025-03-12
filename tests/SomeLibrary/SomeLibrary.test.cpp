@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "SomeLibrary/SomeClass.hpp"
+#include <SomeLibrary/SomeClass.hpp>
 
 using namespace SomeLibrary;
 

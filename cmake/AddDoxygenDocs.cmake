@@ -1,20 +1,13 @@
-function(AddDoxygenDocs INPUT_DIR OUTPUT_DIR)
-    find_package(Doxygen)
-
-    if(NOT DOXYGEN_FOUND)
-        add_custom_target(doxygen COMMAND false COMMENT "Doxygen not found")
-        return()
-    endif()
+function(AddDoxygenDocs SOURCE_CODE_DIR OUTPUT_DOCS_DIR)
+    find_package(Doxygen REQUIRED)
 
     set(DOXYGEN_GENERATE_HTML YES)
-    set(DOXYGEN_HTML_OUTPUT "${PROJECT_BINARY_DIR}/${OUTPUT_DIR}")
+    set(DOXYGEN_HTML_OUTPUT "${PROJECT_BINARY_DIR}/${OUTPUT_DOCS_DIR}")
 
     UseDoxygenAwesomeCss()
     UseDoxygenAwesomeExtensions()
 
-    doxygen_add_docs(doxygen
-            "${PROJECT_SOURCE_DIR}/${INPUT_DIR}"
-            COMMENT "Generate HTML documentation")
+    doxygen_add_docs(${PROJECT_NAME}Docs "${PROJECT_SOURCE_DIR}/${SOURCE_CODE_DIR}" ALL)
 endfunction()
 
 macro(UseDoxygenAwesomeCss)

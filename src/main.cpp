@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "SomeLibrary/SomeClass.hpp"
+#include <SomeLibrary/SomeClass.hpp>
 
 int main(int argc, char* argv[])
 {
