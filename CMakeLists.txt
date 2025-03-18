@@ -5,7 +5,8 @@ project(CppProjectTemplate
         DESCRIPTION "C++ project template"
         LANGUAGES CXX)
 
-option(CPT_BUILD_TESTS "Build tests. This requires GoogleTest to be available" OFF)
+option(CPT_BUILD_TESTS "Build tests. This requires Google Test to be available" OFF)
+option(CPT_BUILD_BENCHMARKS "Build benchmarks. This requires Google Benchmark to be available" OFF)
 option(CPT_BUILD_DOCS "Build documentation. This requires Doxygen to be available" OFF)
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
@@ -19,6 +20,10 @@ if(PROJECT_IS_TOP_LEVEL)
     if(CPT_BUILD_TESTS)
         include(CTest)
         add_subdirectory(tests)
+    endif()
+
+    if(CPT_BUILD_BENCHMARKS)
+        add_subdirectory(benchmarks)
     endif()
 
     if(CPT_BUILD_DOCS)
